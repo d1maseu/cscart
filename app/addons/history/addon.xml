@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<addon scheme="3.0">
+    <id>history</id>
+    <version>1.0</version>
+    <default_language>en</default_language>
+    <queries>
+        <item for="install">DROP TABLE IF EXISTS ?:test_order_changes;</item>
+        <item for="install">
+            CREATE TABLE `?:test_order_changes` (
+                `order_change_id` mediumint(8) unsigned NOT NULL auto_increment,
+                `order_id` mediumint(8) unsigned NOT NULL,
+                `data_old` text NOT NULL default '',
+                `data_new` text NOT NULL default '',
+                `user_id` mediumint(8) unsigned NOT NULL,
+                `updated_at` int(11) unsigned NOT NULL,
+                PRIMARY KEY  (`order_change_id`)
+            ) Engine=MyISAM DEFAULT CHARSET UTF8;
+        </item>              
+        <item for="uninstall">DROP TABLE IF EXISTS ?:test_order_changes;</item>       
+    </queries>
+</addon>

@@ -1,0 +1,17 @@
+msgid ""
+msgstr "Project-Id-Version: tygh\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language-Team: English\n"
+"Language: en_US"
+
+msgctxt "Addons::name::history"
+msgid "History"
+msgstr "History"
+
+msgctxt "Addons::description::history"
+msgid "Order data changes history"
+msgstr "История изменений данных по заказу"
+
+msgctxt "Languages::data_changes_history"
+msgid "History of changes of order data"
+msgstr "История изменений данных по заказу"
