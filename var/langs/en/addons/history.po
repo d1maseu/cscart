@@ -15,3 +15,11 @@ msgstr "История изменений данных по заказу"
 msgctxt "Languages::data_changes_history"
 msgid "History of changes of order data"
 msgstr "История изменений данных по заказу"
+
+msgctxt "Languages::old_state"
+msgid "Old state"
+msgstr "Предыдущее состояние"
+
+msgctxt "Languages::new_state"
+msgid "New state"
+msgstr "Новое состояние"
