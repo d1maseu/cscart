@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $product_options[$option['option_id']] = $option['value']; 
             }
             $item['stored_price'] = $product['extra']['stored_price'];
-            $item['price'] = $product['price'];
+            $item['price'] = (float) $product['price'];
             $item['product_id'] = $product['product_id'];
             $item['amount'] = $product['amount'];
             $item['object_id'] = $product['item_id'];
