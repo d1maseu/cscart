@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $products = [];
         foreach ($order_full_info_old['products'] as $key => $product) {
             $product_options = [];
-            foreach ($product['extra']['product_options_value'] as $key => $option) {
+            foreach ($product['extra']['product_options'] as $key => $option) {
                 $product_options[$option['option_id']] = $option['value']; 
             }
             $item['stored_price'] = $product['extra']['stored_price'];
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $products[$product['item_id']] = $item;
         }
         
-        if (!empty(array_diff_assoc($_REQUEST['cart_products'], $products))) {
+        if (!empty(array_diff_assoc(array_map('serialize', $_REQUEST['cart_products']), array_map('serialize', $products)))) {
             $date = new DateTime();
             
             $order_history_data = [
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             $diff = [];
             foreach ($products as $key => $product) {
-                if(!empty(array_diff_assoc($_REQUEST['cart_products'][$key], $product))) {
+                if(!empty(array_diff_assoc(array_map('serialize', $_REQUEST['cart_products'][$key]), array_map('serialize', $product)))) {
                     $diff += $product; 
                 };
             }
