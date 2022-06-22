@@ -68,7 +68,10 @@
                         </tr>    
                     {/foreach}
                 </table>
-            </div>    
+            </div>  
+            <div class="clearfix">
+                {include file="common/pagination.tpl" div_id=$smarty.request.content_id}
+            </div>  
         </div>
     </div>
 </div> 
