@@ -23,7 +23,14 @@
                                 {__("order")} #{$order['order_id']}
                             </td>
                             <td class="ty-right">
-                                <a href="?dispatch=profiles.update&user_id={$order['user_id']}">{$order['firstname']}</a>
+                                <a href="?dispatch=profiles.update&user_id={$order['user_id']}">
+                                    @
+                                    {if $order['firstname'] || $order['lastname']}
+                                        {if $order['firstname']}{$order['firstname']}{/if}
+                                        {if $order['lastname']}{$order['lastname']}{/if}
+                                    {else if $order['email']} {$order['email']}   
+                                    {/if}    
+                                </a>
                             </td>
                             <td class="ty-right" data-th="{__("date")}">
                             {$order['updated_at']|date_format:"`$settings.Appearance.date_format`, `$settings.Appearance.time_format`"}  

@@ -36,7 +36,7 @@ function fn_test_get_order_history_data($params = [], $items_per_page = 0)
         $limit = db_paginate($params['page'], $params['items_per_page'], $params['total_items']);
     }
 
-    $changed_orders_list = db_get_hash_array("SELECT ?:test_order_changes.*, ?:users.firstname FROM ?:test_order_changes" . db_quote(' LEFT JOIN ?:users ON ?:test_order_changes.user_id = ?:users.user_id') . " WHERE 1 ?p ?p", 'order_change_id', $sorting, $limit);
+    $changed_orders_list = db_get_hash_array("SELECT ?:test_order_changes.*, ?:users.firstname, ?:users.lastname, ?:users.email FROM ?:test_order_changes" . db_quote(' LEFT JOIN ?:users ON ?:test_order_changes.user_id = ?:users.user_id') . " WHERE 1 ?p ?p", 'order_change_id', $sorting, $limit);
 
     foreach ($changed_orders_list as $key => $order) {
         $changed_orders_list[$key]['data_old'] = json_decode($order['data_old'], true);
