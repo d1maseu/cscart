@@ -23,3 +23,11 @@ msgstr "Предыдущее состояние"
 msgctxt "Languages::new_state"
 msgid "New state"
 msgstr "Новое состояние"
+
+msgctxt "Languages::expiry_month"
+msgid "Expiry month"
+msgstr "Expiry month"
+
+msgctxt "Languages::expiry_year"
+msgid "Expiry year"
+msgstr "Expiry year"

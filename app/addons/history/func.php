@@ -5,6 +5,13 @@ use Tygh\Storage;
 
 if (!defined('BOOTSTRAP')) { die('Access denied'); }
 
+/**
+ * Save data of order changes
+ *
+ * @param array  $order_history_data Changed data
+ *
+ * @return boolean
+ */
 function fn_test_save_order_history_data($order_history_data)
 {
     db_query("INSERT INTO ?:test_order_changes ?e", $order_history_data);
@@ -12,6 +19,14 @@ function fn_test_save_order_history_data($order_history_data)
     return true;
 }
 
+/**
+ * List of changed orders data
+ *
+ * @param int    $shipping_id     Shipping identifier
+ * @param array  $params          Pagination params 
+ *
+ * @return array
+ */
 function fn_test_get_order_history_data($params = [], $items_per_page = 0)
 {
     $default_params['items_per_page'] = $items_per_page;
