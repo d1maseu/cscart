@@ -6,23 +6,23 @@
             <div class="table-responsive-wrapper longtap-selection">
                 <table class="orders table">    
                     <thead>
-                        <tr>
-                            <th class="ty-orders-detail__table-product">
+                        <tr class="history-head">
+                            <th class="history-head__item">
                                {include file="common/table_col_head.tpl" type="order_id" text=__("id")}
                             </th>
-                            <th class="ty-orders-detail__table-price">{__("user")}</th>
-                            <th class="ty-orders-detail__table-quantity">{__("date")}</th>
-                            <th class="ty-orders-detail__table-quantity">{__("old_state")}</th>
-                            <th class="ty-orders-detail__table-quantity">{__("new_state")}</th>
+                            <th class="history-head__item">{__("user")}</th>
+                            <th class="history-head__item">{__("date")}</th>
+                            <th class="history-head__item">{__("old_state")}</th>
+                            <th class="history-head__item">{__("new_state")}</th>
                         </tr>
                     </thead>
                     
                     {foreach from=$changed_orders item="order" key="key"}
-                        <tr class="ty-valign-top">
+                        <tr class="history__list">
                             <td>
                                 {__("order")} #{$order.order_id}
                             </td>
-                            <td class="ty-right">
+                            <td class="history__item">
                                 <a href="dispatch[profiles.update]?user_id={$order.user_id}">
                                     @
                                     {if $order.firstname || $order.lastname}
@@ -32,10 +32,10 @@
                                     {/if}    
                                 </a>
                             </td>
-                            <td class="ty-right" data-th="{__("date")}">
+                            <td class="history__item" data-th="{__("date")}">
                             {$order['updated_at']|date_format:"`$settings.Appearance.date_format`, `$settings.Appearance.time_format`"}  
                             </td>
-                            <td class="ty-right">
+                            <td class="history__item">
                                 {if is_array($order.data_old)}
                                     {if !empty($order.data_old['product'])}
                                         <h3 class="order-products">{__("products")}</h3>
@@ -84,7 +84,7 @@
                                     {$order['data_old']}
                                 {/if}    
                             </td>        
-                            <td class="ty-center">
+                            <td class="history__item"">
                                 {if is_array($order.data_new)}
                                     {if !empty($order.data_new['product'])}
                                         <h3 class="order-products">{__("products")}</h3>
